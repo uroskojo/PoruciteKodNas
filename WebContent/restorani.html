@@ -1,0 +1,138 @@
+
+<div ng-controller = "loginCtrl">
+
+ <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Porucite kod nas</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#/">Pocetna<span class="sr-only">(current)</span></a>
+          </li>
+                
+          
+        <li class="nav-item dropdown">
+        <a href="" class="nav-link dropdown-toggle" data-hover="dropdown" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Izmena
+        </a>
+        <div id="izmena" class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#/restorani">Restorani</a>
+          <a class="dropdown-item" href="#/artikli">Artikli</a>
+          <a class="dropdown-item" href="#/vozila">Vozila</a>
+          <a class="dropdown-item" href="#/porudzbine">Porudzbine</a>
+          <a class="dropdown-item" href="#/korisnici">Korisnici</a>
+        </div>
+      </li>
+          <li>
+              <form class="form-inline my-2 my-md-0">
+          	  <input class="form-control" type="text" placeholder="Pronadji">
+       		  </form>
+          </li>
+          <li><a class="nav-link"  href="#/mojNalog" ng-click="logout()">Izloguj se</a></li>
+          
+        </ul>
+      </div>
+    </nav>
+    </div>
+	<div  ng-controller="restoraniCtrl" class="txt">
+		
+    
+	<div class="row" style="padding-left:5%">
+	
+   	
+   	<div class="col-md-4 col-lg-4" style="padding-left:5%;padding-top:3%">
+   	<form>
+   	<table>
+		
+   		<tr>
+   			<td>Naziv:</td>
+   			<td><input id="nazivR" type="text"/></td>	
+   		</tr>
+   		
+   		<tr>
+   			<td>Adresa:</td>
+   			<td><input  id="adresaR" type="text" /></td> 
+   		</tr>
+   		
+ <tr>
+ 	<td>Kategorija:</td>
+   	<td>
+   	  <select id="kategR">
+  		<option value="DOMACA_KUHINJA" selected>Domaca kuhinja</option>
+		<option value="ROSTILJ">Rostilj</option>
+		<option value="KINESKI">Kineski restoran</option>
+		<option value="INDIJSKI">Indijski restoran</option>
+	    <option value="POSLASTICARNICA">Poslasticarnica</option>
+	    <option value="PICERIJA">Picerija</option>
+   			
+     </select>
+     </td>
+  </tr>
+   
+   		<tr>
+   			<td><button ng-if="btnDodaj" class="btn" ng-click="dodajRestoran()">Dodaj</button></td>
+   			<td ng-if="btnIzmena"><button class="btn" ng-click="sacuvajIzmeneRestorana()">Sacuvaj izmene</button></td>
+   		</tr>
+   </table>
+   </form>
+   </div>
+      
+	  <div class="col-md-8 col-lg-8" ng-model="restorani" style="padding-left:5%;padding-top:3%">
+	    
+	  <table ng-if="imaRestorana">
+    	<tr>
+    	<th>Naziv&nbsp;&nbsp;</th>
+    	<th>Adresa&nbsp;&nbsp;</th>
+    	<th>Kategorija&nbsp;&nbsp;</th>
+    	<th>Lista jela&nbsp;&nbsp;</th>
+    	<th>Lista pica&nbsp;&nbsp;</th>
+    	<th>&nbsp;&nbsp;</th>
+    	</tr>
+	    <tr ng-repeat="r in restorani">
+	    	<td>{{r.naziv}}&nbsp;&nbsp;</td>
+	    	<td>{{r.adresa}}&nbsp;&nbsp;</td>
+	    	<td>{{r.kateg}}&nbsp;&nbsp;</td> 	
+	    	
+	    	<td>
+	    	
+	    	<div class="dropdown">
+			  <button class="btn btn-sm dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown">
+			    <span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu">
+			    <li ng-repeat="jelo in r.listaJela">{{jelo.naziv}}</li>
+			 
+			  </ul>
+			</div>
+	    	</td>
+	    	
+	    	<td>
+	         <div class="dropdown">
+				  <button class="btn btn-sm dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown">
+				    <span class="caret"></span>
+				  </button>
+				  <ul class="dropdown-menu">
+				    <li ng-repeat="pice in r.listaPica">{{pice.naziv}}</li>
+				 
+				  </ul>
+			 </div>
+	    	
+	    	</td>
+    		
+	    	    	
+	  		<td>&nbsp;</td>
+			<td><a href="#/restorani" ng-click="obrisiRestoran($index)">Obrisi</a></td>
+			<td>&nbsp;</td>
+			<td><a href="#/restorani" ng-click="izmeniRestoran($index)">Izmeni</a></td>
+	    </tr>
+	    <tr>
+	    </tr>
+	</table>
+  </div>
+  </div>
+ </div> 
+
+	

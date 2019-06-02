@@ -1,0 +1,175 @@
+
+<div ng-controller = "loginCtrl">
+
+ <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Porucite kod nas</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#/">Pocetna<span class="sr-only">(current)</span></a>
+          </li>
+       
+        <li class="nav-item dropdown">
+        <a href="" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+          Izmena
+        </a>
+        <div id="izmena" class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#/restorani">Restorani</a>
+          <a class="dropdown-item" href="#/artikli">Artikli</a>
+          <a class="dropdown-item" href="#/vozila">Vozila</a>
+          <a class="dropdown-item" href="#/porudzbine">Porudzbine</a>
+          <a class="dropdown-item" href="#/korisnici">Korisnici</a>
+        </div>
+      </li>
+          <li>
+              <form class="form-inline my-2 my-md-0">
+          	  <input class="form-control" type="text" placeholder="Pronadji">
+       		  </form>
+          </li>
+          <li><a class="nav-link"  href="#/mojNalog" ng-click="logout()">Izloguj se</a></li>
+          
+        </ul>
+      </div>
+    </nav>
+    </div>
+	
+	<div ng-controller="vozilaCtrl" class="txt">   
+     	
+     	 	
+   	<div  ng-model="vozila" style="padding-left:3%;padding-top:3%"> 
+   	
+   	<table ng-if="imaVozila">
+    	<tr>
+    	<th>Tip&nbsp;&nbsp;</th>
+    	<th>Marka&nbsp;&nbsp;</th>
+    	<th>Model&nbsp;&nbsp;</th>
+    	<th>God. proizvodnje&nbsp;&nbsp;</th>
+    	<th>Reg. oznaka&nbsp;&nbsp;</th>
+    	<th>Napomena&nbsp;&nbsp;</th>
+    	<th>Dostavljac(nije obavezno)&nbsp;&nbsp;</th>
+    	<th>&nbsp;&nbsp;</th>
+    	</tr>
+	    <tr ng-repeat="v in vozila">
+	    	<td>{{v.tip}}&nbsp;&nbsp;</td>
+	    	<td>{{v.marka}}&nbsp;&nbsp;</td>
+	    	<td>{{v.model}}&nbsp;&nbsp;</td>
+	    	<td>{{v.godProizv}}&nbsp;&nbsp;</td>
+	    	<td>{{v.regOznaka}}&nbsp;&nbsp;</td>	
+	    	<td>{{v.napomena}}&nbsp;&nbsp;</td>  
+	    	<td>{{v.dostavljac}}&nbsp;&nbsp;</td>
+	    	<td><button class="btn btn-sm" ng-click="ukloniDostavljaca($index)" ng-show="v.imaDostavljaca">Ukloni dostav.</button></td>  
+	    	
+	    	<td>
+	    	
+	    	<div class="container">
+			  
+	  <!-- Trigger the modal with a button -->		
+		<button ng-click="prikaziModal($index)" ng-show="!v.imaDostavljaca" type="button" class="btn btn-sm" data-toggle="modal" data-target="#myModal">Dodeli dostavljacu</button>
+			
+			  <!-- Modal -->
+			  <div class="modal fade" id="myModal" role="dialog">
+			    <div class="modal-dialog">
+			    
+			      <!-- Modal content-->
+				      <div class="modal-content">
+				        <div class="modal-header">
+				          <h4 class="modal-title">Dostavljaci</h4>
+				          <button type="button" class="close" data-dismiss="modal">&times;</button>
+				        </div>
+				        
+				        <div class="modal-body">
+				          
+				       <table>
+				    	
+					    <tr ng-repeat="d in dostavljaci">
+					    	<td>{{d.ime}}&nbsp;&nbsp;</td>
+					    	<td>{{d.prezime}}&nbsp;&nbsp;</td>
+					    	<td>{{d.kontaktTelefon}}&nbsp;&nbsp;</td>  	
+					  		<td>&nbsp;</td>
+							<td><input type="radio" value="{{d.korisnickoIme}}" name="Dostavljaci"></td>
+					    </tr>
+					    
+					</table>
+				
+				        </div>        
+				        <div class="modal-footer">
+				          <button type="button" class="btn btn-sm" data-dismiss="modal">Zatvori</button>
+				          <button type="button" class="btn btn-sm" data-dismiss="modal" ng-click="dodeliVozilo()">Dodeli vozilo</button>
+				        </div>
+				      </div>
+				      
+				    </div>
+			  </div>
+  
+			  </div>
+	    	
+	    	</td> 	
+	  		<td>&nbsp;</td>
+	  		<td>
+	  			<button class="btn btn-sm" ng-click="obrisiVozilo($index)">Obrisi</button>
+	  		</td>
+			
+			<td>&nbsp;</td>
+			<td><button class="btn btn-sm" ng-click="izmeniVozilo($index)">Izmeni</button></td>
+	    </tr>
+	    <tr>
+	    </tr>
+	</table>
+   	
+   	</div>
+   	
+	<div style="padding-left:5%;padding-top:3%">
+   	<form>
+   	<table>
+		
+   		<tr>
+   			<td>Marka:</td>
+   			<td><input  type="text" id="markaV"/></td>	
+   		</tr>
+   		
+   		<tr>
+   			<td>Model:</td>
+   			<td><input  type="text" id="modelV"/></td>
+   		</tr>
+   		
+   		<tr>
+   			<td>Registarska oznaka:</td>
+   			<td><input id="regOznakaV" type="text"/></td>
+   		</tr>
+   		<tr>
+   			<td>Napomena:</td>
+   			<td><input  id="napomenaV" type="text"/></td>
+   		</tr> 	
+	 <tr>
+	 	<td>Tip:</td>
+	   	<td>
+	   	  <select id="tipV">
+	  		<option value="BICIKL">Bicikl</option>
+			<option value="SKUTER">Skuter</option>
+			<option value="AUTOMOBIL">Automobil</option>	
+	     </select>
+	     </td>
+	  </tr>
+	  <tr>
+   			<td>Godina proizvodnje:</td>
+   			<td><input  id="godProizvV" type="number" min="1769" max="2018"/></td>
+   		</tr>	
+	  
+   		<tr>
+   			<td><button ng-if="btnDodajVozilo" class="btn" ng-click="dodajVozilo()">Dodaj</button></td>
+   			<td ng-if="btnIzmenaVozila"><button class="btn" ng-click="sacuvajIzmeneVozila()">Sacuvaj izmene</button></td>
+   		</tr>
+   </table>
+   </form>
+   </div>
+    </div>
+	
+	
+	
+	
+
+	

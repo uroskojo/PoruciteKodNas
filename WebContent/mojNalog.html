@@ -1,0 +1,146 @@
+
+ <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Porucite kod nas</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Pocetna</a>
+          </li>
+         
+          <li class="nav-item">
+            <a class="nav-link" href="#/mojNalog" >Moj nalog<span class="sr-only">(current)</span></a>
+          </li>
+              	
+          <li>
+              <form class="form-inline my-2 my-md-0">
+          	  <input class="form-control" type="text" placeholder="Pronadji">
+       		  </form>
+          </li>
+          
+        </ul> 
+      </div>
+    </nav>
+
+	<div class="row txt" style="margin-left:10%; margin-top:5%">
+	
+	<div class="col-sm-6" ng-controller="regFormCtrl">
+		<h3>Jos uvek nemate nalog?</h3>
+		<a href="#/mojNalog" ng-click="prikaziFormu()">Registrujte se besplatno.</a>
+		
+		<div ng-if="prikazi"> 
+		
+		
+		<form name="userForm" id="regForm">
+            <table>
+                 <tr>
+                    <td>ime:</td>
+                    <td><input type="text" ng-model="korisnik.ime" name = "ime" required/></td>
+                               	
+                	<td>
+                	 <span ng-show="userForm.ime.$touched && userForm.ime.$invalid">Ime je obavezno.</span>
+                	</td>
+                </tr>
+               
+                <tr>
+                    <td>prezime:</td>
+                    <td><input type="text" ng-model="korisnik.prezime" name = "prezime" required/></td>
+                     <td><span ng-show="userForm.prezime.$touched && userForm.prezime.$invalid">Prezime je obavezno.</span></td>
+                
+                </tr> 
+                <tr>
+                    <td>korisnicko ime:</td>
+                    <td><input type="text" ng-model="korisnik.korisnickoIme" name = "korisnickoIme"  required/></td><!-- ng-minlength="5"-->
+                   <td><span ng-show="userForm.korisnickoIme.$error.minlength">Korisnicko ime je prekratko.</span>
+                    	<span ng-show="userForm.korisnickoIme.$touched && userForm.korisnickoIme.$error.required">Korisnicko ime je obavezno.</span>
+                                       
+                    </td>	 
+                </tr>
+                <tr>
+                    <td>lozinka:</td>
+                    <td><input type="password" ng-model="korisnik.lozinka" name = "lozinka" /></td><!-- ng-minlength="8" -->
+                 <td><span ng-show="userForm.lozinka.$error.minlength">Lozinka je prekratka.</span>
+                		<span ng-show="userForm.lozinka.$touched && userForm.lozinka.$error.required">Lozinka je obavezna.</span>
+                	</td> 
+               
+                    
+                </tr>
+                 <tr>
+                    <td>potvrdi lozinku:</td>
+                    <td><input type="password" ng-model="korisnik.potvrdaLozinke" name = "potvrdaLozinke" 
+                     match="korisnik.lozinka"/></td>
+               <td><span ng-show="userForm.potvrdaLozinke.$error.match">Lozinke se ne poklapaju!</span></td>
+                	
+                </tr>
+                <tr>
+                    <td>email:</td>
+                    <td><input type="email" ng-model="korisnik.imejl" name = "imejl"/></td>
+                </tr>
+                <tr>
+                    <td>broj telefona:</td>
+                    <td><input type="text" ng-model="korisnik.brTel" name = "brTel"/></td>
+                </tr>
+                 <tr>
+                    <td>datum:</td>
+                    <td><input type="date" ng-model="korisnik.datum" name = "datum"/></td>
+                </tr> 
+                <tr>
+                 <td colspan="2" align="center"><button ng-disabled="userForm.$invalid" class="btn" ng-click="registruj(korisnik)" style="float:right">Registruj se</button></td> 
+                </tr>               
+            </table>
+          
+            </form>
+		
+		<!--  
+    	 <form>
+            <table>
+                <tr>
+                    <td>ime:</td>
+                    <td><input type="text" ng-model="korisnik.ime" name = "ime"/></td>     
+                </tr>
+                  <tr>
+                    <td>email:</td>
+                    <td><input type="text" ng-model="korisnik.imejl" name = "imejl"/></td>
+                 </tr>
+              <tr>
+                    <td>korisnicko ime:</td>
+                    <td><input type="text" ng-model="korisnik.korisnickoIme" name = "korisnickoIme"/></td>
+              </tr>
+              <tr>
+                    <td>lozinka:</td>
+                    <td><input type="password" ng-model="korisnik.lozinka" name = "lozinka"/></td>
+              </tr>           
+              <tr>
+                 <td colspan="2" align="center"><button ng-click="registruj(korisnik)">Registruj se</button></td> 
+              </tr>     
+            </table>
+          
+            </form> 
+-->
+	<h1>{{porukaReg}}</h1>
+
+   </div>
+		
+		
+	</div>
+	
+	<div class="col-sm-6" id="loginDiv"  ng-controller="loginCtrl">
+	
+	<h3>Imate nalog? Prijavite se.</h3>
+		
+		<form id="loginForm">
+			<table>
+				<tr><td>Korisnicko ime:</td><td><input type="text" name="username" ng-model="korisnik.username"></td></tr>
+				<tr><td>Lozinka:</td><td><input type="password" name="password" ng-model="korisnik.password"></td></tr>
+				<tr><td><button class="btn" ng-click="login(korisnik)">Ulogujte se</button></td></tr>
+			</table>
+
+		</form>
+		<h1>{{porukaLog}}</h1>
+	</div>
+	</div>
+	
+	

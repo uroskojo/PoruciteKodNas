@@ -1,0 +1,5 @@
+{"tip":"PICE","naziv":"kafa","jedinicnaCena":5.0,"opis":"dds","kolicina":978,"id":"f1b01b06-a1cc-49d7-8bca-d7362378f88b","obrisan":false,"restoran":"Mladost"}
+{"tip":"PICE","naziv":"Fanta","jedinicnaCena":150.0,"opis":"dfdsf","kolicina":5,"id":"ef76f427-ce30-4449-8869-b15a889c0832","obrisan":false,"restoran":"Kraljica"}
+{"tip":"PICE","naziv":"CocaCola","jedinicnaCena":150.0,"opis":"dsfs","kolicina":4,"id":"490eef28-ba3f-490e-8bb4-f16d3b3e8053","obrisan":false,"restoran":"Restoran 3"}
+{"tip":"HRANA","naziv":"Palacinke","jedinicnaCena":200.0,"opis":"dfa","kolicina":150,"id":"3d3fcfe9-b95b-4c66-b33e-3c7cda009c88","obrisan":false,"restoran":"Restoran 3"}
+{"tip":"HRANA","naziv":"neko jelo","jedinicnaCena":1550.0,"opis":"dsf","kolicina":250,"id":"8976dc10-7d27-4bdb-8763-bc0e1021905f","obrisan":false,"restoran":"Restoran 3"}

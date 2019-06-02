@@ -1,0 +1,87 @@
+.btn-primary{
+	
+	width: 150px;
+	background-color: #c3a64f2b!important;
+	border-color: transparent!important;
+	
+}
+.btn-primary:hover{
+	
+	background-color: #c3a64f6e!important;
+	border-color: transparent!important;
+}
+
+body{
+	
+	background-image: url("../pictures/pocetna.jpg");
+	background-size: cover;
+}
+
+.txt{
+	color: white
+	
+}
+
+.card{
+	
+	background: transparent;
+	border: none;
+}
+ .card>a{
+	color:white;
+	text-decoration: none;
+} 
+
+.card-title:hover{
+	
+	  color: #fbd49f;
+      text-decoration: none; 
+}
+.modal-content
+{
+	background: #000000cc;
+	color: white;
+	
+}
+.dropdown-menu
+{
+	background: #000000ad;
+}
+
+.dropdown-menu>li{
+	color:white;
+}
+.bg-dark{
+	background-color: #000000ad!important;
+}
+
+.dropdown-item{
+	color: white;	
+}
+
+.dropdown-item:hover{
+	color: white;
+	background-color: #000000c9	
+}
+.modal-footer, .modal-header{
+	
+	border-top: none;
+	border-bottom: none;
+}
+#kolicina{
+	
+	width: 3em;
+    color: white;
+    background: transparent;
+}
+#napomena{
+	width: 10em;
+    color: white;
+    background: transparent;
+}
+#markaV, #modelV, #regOznakaV, #napomenaV, #godProizvV{
+	
+	background: transparent;
+	color: white;
+}
+

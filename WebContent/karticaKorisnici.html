@@ -1,0 +1,78 @@
+
+<div ng-controller = "loginCtrl">
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Porucite kod nas</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#/">Pocetna</a>
+          </li>
+         
+          <li class="nav-item dropdown">
+        <a href="" class="nav-link dropdown-toggle" data-hover="dropdown" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Izmena
+        </a>
+        <div id="izmena" class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#/restorani">Restorani</a>
+          <a class="dropdown-item" href="#/artikli">Artikli</a>
+          <a class="dropdown-item" href="#/vozila">Vozila</a>
+          <a class="dropdown-item" href="#/porudzbine">Porudzbine</a>
+          <a class="dropdown-item" href="#/korisnici">Korisnici</a>
+        </div>
+      </li>
+                  
+          <li>
+              <form class="form-inline my-2 my-md-0">
+          	  <input class="form-control" type="text" placeholder="Pronadji">
+       		  </form>
+          </li>
+          <li><a class="nav-link"  href="#/mojNalog" ng-click="logout()">Izloguj se</a></li><!--  href="#/mojNalog" -->
+        </ul>
+      </div>
+    </nav>
+    </div>
+
+<div ng-controller="korisniciCtrl" class="txt">
+
+    
+    <div ng-model="korisnici" class="col-sm-12" style="padding-left:10%;padding-top:6%">
+    <div class="row">
+    <table>
+    	<tr>
+    	<th>Ime&nbsp;&nbsp;</th>
+    	<th>Korisnicko ime&nbsp;&nbsp;</th>
+    	<th>Imejl adresa&nbsp;&nbsp;</th>
+    	<th>Trenutna uloga&nbsp;&nbsp;</th>
+    	<th>Promena uloge&nbsp;&nbsp;</th>
+    	<th>&nbsp;&nbsp;</th>
+    	</tr>
+	    <tr  ng-repeat="k in korisnici">
+	    	<td>{{k.ime}}&nbsp;&nbsp;</td>
+	    	<td>{{k.korisnickoIme}}&nbsp;&nbsp;</td>
+	    	<td>{{k.email}}&nbsp;&nbsp;</td>
+	    	<td>{{k.uloga}}&nbsp;&nbsp;</td>
+	    	<td> 
+	    	
+	    	<select ng-model="k.uloga" id="ulogeSelect">
+	    		
+	   			<option value="KUPAC">Kupac</option>
+	   			<option value="ADMIN">Admin</option>
+	   			<option value="DOSTAVLJAC">Dostavljac</option>
+	    			
+	   		</select> 
+	  		</td>
+	  		<td>&nbsp;</td>
+	  		<td><button class="btn" ng-click="save(k)">Sacuvaj promenu</button></td>
+	  	<!--onemoguci dugme ako nista nije selektovano-->
+	  
+	    </tr>
+	   
+	</table>
+    </div>
+   	</div>
+</div>
+

@@ -1,0 +1,90 @@
+<div ng-controller="loginCtrl">
+	<!-- Menu -->
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Porucite kod nas</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#/">Pocetna<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#/porudzbineDostavljac">Porudzbine</a>
+          </li>
+
+          <li>
+              <form class="form-inline my-2 my-md-0">
+          	  <input class="form-control" type="text" placeholder="Pronadji">
+       		  </form>
+          </li>
+          <li><a class="nav-link" href="#" ng-click="logout()">Izloguj se</a></li>
+        </ul>
+        
+      </div>
+    </nav>
+    </div>
+    
+    
+    <!-- prikaz svih porudzbina -->
+    
+   <div class="txt" ng-controller="porudzbineCtrl" style="padding-left:3%;padding-top:3%">
+		
+	  <table>	<!-- ng-if="imaPorudzbina" -->
+    	<tr>
+    	<th>Datum&nbsp;&nbsp;</th>
+    	<th>Kupac&nbsp;&nbsp;</th>
+    	<th>Napomena&nbsp;&nbsp;</th>
+    	<th>Status&nbsp;&nbsp;</th>
+    	<th>Dostavljac&nbsp;&nbsp;</th>
+    	
+    	<th>&nbsp;&nbsp;</th>
+    	</tr>
+	    <tr ng-repeat="p in porudzbine">
+	    	<td>{{p.datumVreme}}&nbsp;&nbsp;</td>
+	    	<td>{{p.kupac.ime}}&nbsp;&nbsp;</td>
+	    	<td>{{p.napomena}}&nbsp;&nbsp;</td> 
+	    	<td>{{p.status}}&nbsp;&nbsp;</td> 	
+	    	<td>{{p.dostavljac}}&nbsp;&nbsp;</td> 	
+	    	
+	    	<td><a href="" ng-click="dostavi(p)">Dostavi</a></td>
+	    	<td>&nbsp;&nbsp;</td>
+	    	<td><a href="" ng-click="preuzmi(p)">Preuzmi</a></td> 	    	
+	    	
+	    </tr>
+	    <tr>
+	    </tr>
+	</table>
+
+  </div>
+	<div class="txt" style="padding-left:3%;padding-top:3%" ng-controller="vozilaCtrl">
+		<table>	
+		    	<tr>
+		    	<th>Tip&nbsp;&nbsp;</th>
+		    	<th>Marka&nbsp;&nbsp;</th>
+		    	<th>Model&nbsp;&nbsp;</th>
+		    	<th>God. proizvodnje&nbsp;&nbsp;</th>
+		    	<th>Reg. oznaka&nbsp;&nbsp;</th>
+		    	<th>Napomena&nbsp;&nbsp;</th>
+		    	<th>Dostavljac&nbsp;&nbsp;</th>
+		    	<th>Izaberi&nbsp;&nbsp;</th>
+		    	
+		    	</tr>
+			    <tr ng-repeat="v in vozila">
+			    	<td>{{v.tip}}&nbsp;&nbsp;</td>
+			    	<td>{{v.marka}}&nbsp;&nbsp;</td>
+			    	<td>{{v.model}}&nbsp;&nbsp;</td>
+			    	<td>{{v.godProizv}}&nbsp;&nbsp;</td>
+			    	<td>{{v.regOznaka}}&nbsp;&nbsp;</td>	
+			    	<td>{{v.napomena}}&nbsp;&nbsp;</td>  
+			    	<td>{{v.dostavljac}}&nbsp;&nbsp;</td>
+			  		<td><input type="radio" value="{{v.id}}" name="Vozila"></td>
+			    </tr>
+			    <tr>
+			    </tr>
+		</table>
+    <button ng-click="uzmiVozilo()"  type="button" class="btn btn-info btn-sm">Uzmi vozilo</button>
+				
+    </div>

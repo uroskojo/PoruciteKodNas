@@ -1,0 +1,2 @@
+{"tip":"AUTOMOBIL","marka":"BMW","model":"520D","regOznaka":"ca-boca","godProizv":2018,"voziloUpotreba":false,"napomena":"","id":"78136ba1-337e-492c-b429-0199001c8296","obrisano":false,"dostavljac":"/","imaDostavljaca":false}
+{"tip":"AUTOMOBIL","marka":"Audi","model":"r8","regOznaka":"sg5dg","godProizv":1769,"voziloUpotreba":false,"napomena":"","id":"209a50e6-d440-40c9-bf65-bf64c73b6818","obrisano":false,"dostavljac":"/","imaDostavljaca":false}

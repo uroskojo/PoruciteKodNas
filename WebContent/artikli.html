@@ -1,0 +1,128 @@
+<div ng-controller = "loginCtrl">
+
+ <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Porucite kod nas</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#/">Pocetna<span class="sr-only">(current)</span></a>
+          </li>
+
+          
+        <li class="nav-item dropdown">
+        <a href="" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Izmena
+        </a>
+        <div id="izmena" class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#/restorani">Restorani</a>
+          <a class="dropdown-item" href="#/artikli">Artikli</a>
+          <a class="dropdown-item" href="#/vozila">Vozila</a>
+          <a class="dropdown-item" href="#/porudzbine">Porudzbine</a>
+          <a class="dropdown-item" href="#/korisnici">Korisnici</a>
+        </div>
+      </li>
+          <li>
+              <form class="form-inline my-2 my-md-0">
+          	  <input class="form-control" type="text" placeholder="Pronadji">
+       		  </form>
+          </li>
+          <li><a class="nav-link"  href="#/mojNalog" ng-click="logout()">Izloguj se</a></li>
+          
+        </ul>
+      </div>
+    </nav>
+    </div>
+	
+	
+	<div ng-controller="artikalCtrl" class="txt">
+ 
+   
+   	
+   	<div class="row"  style="padding-left:5%">
+   	<div class="col-md-4 col-lg-4" style="padding-left:5%;padding-top:3%">
+   
+   
+   	<table>
+   		<tr>
+   			<td>Naziv:</td>
+   			<td><input id="nazivA" type="text"/></td>	
+   		</tr>
+   		
+   	   <tr>
+   			<td>Jedinicna cena:</td>
+   			<td><input id="jedinicnaCenaA" type="number" min="0"/></td>
+   	   </tr>
+	   <tr>
+	     <td>Opis:</td>
+	  	 <td><input id="opisA" type="text"/></td>
+	   </tr>
+		
+	   <tr>
+	     <td>Kolicina:</td>
+	  	 <td><input id="kolicinaA" type="number" min="0" /></td>
+	   </tr>
+   
+		<tr>
+	 	<td>Tip:</td>
+	   	<td>
+	   	  <select id="tipA">
+	  		<option value="HRANA">Hrana</option>
+			<option value="PICE">Pice</option>
+	     </select>
+	     </td>
+	  	</tr>
+	  	
+	  
+	 	<td>Restoran:</td>
+	   	<td>
+	   	  <select id="restoraniID">
+	  		<option ng-repeat="r in restorani" value="{{r.naziv}}">{{r.naziv}}</option>
+			
+	     </select>
+	     </td>
+	  	</tr>
+	  	
+   		<tr>
+   			<td ><button ng-if="btnDodajArtikal" class="btn" ng-click="dodajArtikal()">Dodaj</button></td> 
+   			<td ng-if="btnIzmenaArtikla"><button class="btn" ng-click="sacuvajIzmeneArtikla()">Sacuvaj izmene</button></td>
+   		</tr>
+   </table>
+   
+   </div>
+   
+   	<div class="col-md-8 col-lg-8" style="padding-left:5%;padding-top:3%">
+    <table ng-if="imaArtikala">
+    	<tr>
+    	<th>Tip&nbsp;&nbsp;</th>
+    	<th>Naziv&nbsp;&nbsp;</th>
+    	<th>Jedinicna cena&nbsp;&nbsp;</th>
+    	<th>Opis&nbsp;&nbsp;</th>
+    	<th>Kolicina&nbsp;&nbsp;</th>
+    	<th>Restoran&nbsp;&nbsp;</th>
+    	<th>&nbsp;&nbsp;</th>
+    	</tr>
+	    <tr ng-repeat="a in artikli">
+	    	<td>{{a.tip}}&nbsp;&nbsp;</td>
+	    	<td>{{a.naziv}}&nbsp;&nbsp;</td>
+	    	<td>{{a.jedinicnaCena}}&nbsp;&nbsp;</td>
+	    	<td>{{a.opis}}&nbsp;&nbsp;</td>
+	    	<td>{{a.kolicina}}&nbsp;&nbsp;</td>	 
+	    	<td>{{a.restoran}}&nbsp;&nbsp;</td>	   	
+	  		<td>&nbsp;</td>
+			<td><a href="#/artikli" ng-click="obrisiArtikal($index)">Obrisi</a></td>
+			<td>&nbsp;</td>
+			<td><a href="#/artikli" ng-click="izmeniArtikal($index)">Izmeni</a></td>
+	    </tr>
+	    
+	</table>
+    </div>
+	</div>
+   </div> 
+	
+	
+
+	
